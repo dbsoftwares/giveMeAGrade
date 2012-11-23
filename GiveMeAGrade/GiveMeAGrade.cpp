@@ -2,57 +2,61 @@
 //
 
 #include "stdafx.h"
+#include "conio.h"
 #include <string>
 #include <iostream>
 
+using namespace std;
 
+	string firstName = "";
+	string lastName = "";
+	int testScore = 0;
+	int programmingScore = 0;
+	int averageScore = 0;
+	char grade;
+
+void getInputFromUser()
+{
+	cout <<"Enter your first name"<< endl;
+	cin >> firstName;
+	cout <<"Enter your last name"<< endl;
+	cin >> lastName;
+	cout <<"Enter your test score"<< endl;
+	cin >> testScore;
+	cout <<"Enter your programming score"<< endl;
+	cin>> programmingScore;
+}
+
+void calculateGrade(int testScore,int programmingScore)
+{
+	averageScore = (testScore + programmingScore)/2;
+
+	if (averageScore >= 90 ) grade ='A';
+	else if (averageScore >= 80 ) grade ='B';
+	else if (averageScore >= 70 ) grade ='C';
+	else if (averageScore >= 60 ) grade ='D';
+	else grade ='E';
+	
+}
+
+void printDataToStdOutput ()
+{
+	cout << "Your name is : "<< firstName + " "+ lastName <<endl;
+	cout << "Your test score is : "<< testScore <<endl;
+	cout << "Your programming score is : " << programmingScore <<endl;
+	cout << "Your average score is: " << averageScore <<endl;
+	cout << "Your grade is : grade " <<grade <<endl;
+	cout << "Filed...";
+}
+		
+		
 int _tmain(int argc, _TCHAR* argv[])
 {
-
-	using namespace std;
-	char read(string name1,string name2,int test,int program,int avrge,char x)
-	{
-		cout <<"inter your first name"<< endl;
-		cin >> name1;
-		cout <<"inter your end name"<< endl;
-		cin >> name2;
-		cout <<"inter your test score"<< endl;
-		cin >> test;
-		cout <<"inter your programming score"<< endl;
-		cin>> program;
-		avrge=(test + program)/2;
-		cout << avrge;
-		if (avrge>=90)x='a';
-		else if (avrge>=80)x='b';
-		else if (avrge>=70)x='c';
-		else if (avrge>=60)x='d';
-		else cout<< "filed";
-
-		cout << "your name is :"<<name1<<endl;
-		cout<<"your fname is :"<<name2<<endl;
-		cout <<"your test score is :"<<test<<endl;
-		cout<<"your programming score is :"<<program<<endl;
-		cout<<"your grade is :"<<x<<endl;
-
-
-
-
-	}
-
-	int main ()
-	{
-
-		string name1;
-		string name2;
-
-		int test;
-		int program;
-		int avrge;
-		char x;
-		read(name1,name2,test,program,avrge,x);
-
-		return 0;
-	}
+	getInputFromUser();
+	calculateGrade(testScore, programmingScore);
+	printDataToStdOutput();
+	getch();
 	return 0;
 }
+
 
